@@ -1,0 +1,33 @@
+000000000040068c <answer1>:
+  40068c:	55                   	push   %rbp
+  40068d:	48 89 e5             	mov    %rsp,%rbp
+  400690:	c7 45 fc 2a 00 00 00 	movl   $0x2a,-0x4(%rbp) //int t=0x2a=42
+  400697:	8b 45 fc             	mov    -0x4(%rbp),%eax // int ret_val = t
+  40069a:	5d                   	pop    %rbp
+  40069b:	c3                   	ret
+
+000000000040069c <answer2>:
+  40069c:	55                   	push   %rbp
+  40069d:	48 89 e5             	mov    %rsp,%rbp
+  4006a0:	c7 45 fc 2a 00 00 00 	movl   $0x2a,-0x4(%rbp) //int t = 42
+  4006a7:	c1 65 fc 03          	shll   $0x3,-0x4(%rbp) //int  t= 42*336
+  4006ab:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  4006ae:	5d                   	pop    %rbp
+  4006af:	c3                   	ret
+
+00000000004006b0 <answer3>:
+  4006b0:	55                   	push   %rbp
+  4006b1:	48 89 e5             	mov    %rsp,%rbp
+  4006b4:	c7 45 fc 2a 00 00 00 	movl   $0x2a,-0x4(%rbp)
+  4006bb:	c1 65 fc 03          	shll   $0x3,-0x4(%rbp) // 0000 0001 0101 0000
+                                                              0000 0000 0001 0001
+  4006bf:	83 75 fc 11          	xorl   $0x11,-0x4(%rbp) // 321 0x141
+  4006c3:	8b 55 fc             	mov    -0x4(%rbp),%edx
+  4006c6:	89 d0                	mov    %edx,%eax 
+  4006c8:	01 c0                	add    %eax,%eax //642
+  4006ca:	01 d0                	add    %edx,%eax //963
+  4006cc:	89 45 fc             	mov    %eax,-0x4(%rbp) 
+  4006cf:	c1 65 fc 0a          	shll   $0xa,-0x4(%rbp) //986112
+  4006d3:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  4006d6:	5d                   	pop    %rbp
+  4006d7:	c3                   	ret
